@@ -1,0 +1,8 @@
+1: Copy the JSON file on the temporary memory of docker(obviously in this command put the path to the JSON file on your pc)
+docker cp "C:\Users\User\Desktop\Ingegneria Informatica\Magistrale Engineering in computer Science\Large Scale Data Management\datasets\Cartella dataset di prova\Final_Artists\Final_Artists.json" mongo:/tmp/Final_Artists.json
+
+2: execute the container mongo and access the container by the shell
+docker exec -it mongo bash 
+
+3: last things to is to import the temporary file on docker into the mongo db and then check on mongo-express if the import was done successfully and repeat the process for the song collection
+mongoimport --db admin  --collection Artists --file /tmp/Final_Artists.json --jsonArray
